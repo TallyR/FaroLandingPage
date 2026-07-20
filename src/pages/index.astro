@@ -1,13 +1,1013 @@
 ---
+const phone = "+1 (646) 879-0459";
+const smsHref = "sms:+16468790459?&body=hey%20faro";
+
+const marqueeItems = [
+  "nag me until i book the flights",
+  "gym 3x a week, track my PRs",
+  "clean for 10 minutes a day",
+  "make me finish the essay",
+  "call grandma on sundays",
+  "text me until i renew my passport",
+  "drink water like a person",
+  "nag me until i cancel that subscription",
+  "practice spanish every morning",
+  "make me send the invoice",
+];
 ---
 
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Faro</title>
+    <title>faro · just text faro</title>
+    <meta
+      name="description"
+      content="an accountability companion you text. no app, no dashboard, no setup. tell faro what you're committing to and it texts you every day until it's done."
+    />
+    <meta property="og:title" content="faro · just text faro" />
+    <meta
+      property="og:description"
+      content="an accountability companion you text. tell it what you're committing to. it texts you every day until it's done."
+    />
+    <meta name="theme-color" content="#faf5ec" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    +1 (646) 879-0459
+    <nav>
+      <a class="wordmark" href="/">
+        <span class="beacon-dot"></span>
+        faro
+      </a>
+      <a class="btn btn-small" href={smsHref}>text faro</a>
+    </nav>
+
+    <!-- hero -->
+    <header class="hero">
+      <div class="hero-glow" aria-hidden="true"></div>
+      <p class="eyebrow">an accountability companion you text</p>
+      <h1>
+        your brain drops things.<br />
+        <em>faro doesn't.</em>
+      </h1>
+      <p class="hero-sub">
+        no app. no dashboard. no setup. you tell it what you're committing to,
+        it remembers everything, and it texts you every day until it's done.
+      </p>
+      <div class="hero-cta">
+        <a class="btn btn-big" href={smsHref}>text {phone}</a>
+        <p class="cta-note">save the number. say hi. that's the whole onboarding.</p>
+      </div>
+
+      <div class="phone" role="img" aria-label="a text conversation with faro">
+        <div class="phone-header">
+          <span class="avatar"></span>
+          <div class="contact">
+            <strong>faro</strong>
+            <span>{phone}</span>
+          </div>
+        </div>
+        <div class="phone-messages">
+          <p class="stamp">today 9:02 am</p>
+          <p class="bubble me">nag me until i book the flights to lisbon</p>
+          <p class="bubble faro">
+            on it. i'll check in every day until you're holding a boarding pass.
+            when do they need to be booked, ish?
+          </p>
+          <p class="bubble me">before friday</p>
+          <p class="bubble faro">noted. talk tomorrow ☀️</p>
+        </div>
+      </div>
+    </header>
+
+    <!-- marquee -->
+    <section class="marquee" aria-label="things people text faro">
+      <div class="marquee-track">
+        {[0, 1].map((copy) => (
+          <div class="marquee-group" aria-hidden={copy === 1}>
+            {marqueeItems.map((item) => (
+              <span class="marquee-item">
+                <span class="dot"></span>
+                {item}
+              </span>
+            ))}
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- manifesto -->
+    <section class="manifesto deep">
+      <div class="wrap narrow reveal">
+        <p class="big-serif">
+          you have adhd, or you just live like you do. tasks evaporate the
+          second they're out of sight. the flight never gets booked. the gym
+          habit dies quietly in week two. every to do app you've downloaded
+          became one more thing you forgot to open.
+        </p>
+        <p class="big-serif accent">
+          faro flips the direction. instead of you remembering to check a
+          system, <em>the system comes to you.</em>
+        </p>
+      </div>
+    </section>
+
+    <!-- how it works -->
+    <section class="steps">
+      <div class="wrap">
+        <p class="eyebrow reveal">how it works</p>
+        <h2 class="reveal">three steps, and one of them is <em>texting</em></h2>
+        <div class="step-grid">
+          <div class="step reveal">
+            <span class="step-num">1</span>
+            <h3>say the thing</h3>
+            <p>
+              text it like a person. "nag me until i book the dentist." no
+              forms, no folders, no priority matrix. it's in.
+            </p>
+          </div>
+          <div class="step reveal">
+            <span class="step-num">2</span>
+            <h3>faro holds it</h3>
+            <p>
+              commitments, streaks, context. persistent memory means it never
+              asks you to explain your life twice.
+            </p>
+          </div>
+          <div class="step reveal">
+            <span class="step-num">3</span>
+            <h3>the text finds you</h3>
+            <p>
+              one daily message with your whole board. nothing to open, nothing
+              to check. showing up is the product.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- daily board (dark) -->
+    <section class="board dark">
+      <div class="board-glow" aria-hidden="true"></div>
+      <div class="wrap">
+        <p class="eyebrow reveal">the daily text</p>
+        <h2 class="reveal">one text a day. <em>your whole board.</em></h2>
+        <p class="section-sub reveal">
+          what's done, what's in flight, what's slipping. you never have to
+          remember to open anything.
+        </p>
+
+        <div class="board-bubble reveal">
+          <p>morning ☀️ the board:</p>
+          <p>✅ essay: sent last night. you actually did it.</p>
+          <p>🔥 gym: 2 of 3 this week. one more and the streak lives.</p>
+          <p>✈️ lisbon flights: day 4. see below.</p>
+          <p>👀 passport: still pretending not to see this one?</p>
+          <p>one thing today. i'd pick the flights.</p>
+        </div>
+
+        <div class="escalation reveal">
+          <h3>items you're avoiding get a little pointier each day</h3>
+          <div class="esc-row"><span class="esc-day">day 1</span><p class="bubble faro">hey. flights to lisbon. today the day? ✈️</p></div>
+          <div class="esc-row"><span class="esc-day">day 2</span><p class="bubble faro">the flights say hi. they miss you.</p></div>
+          <div class="esc-row"><span class="esc-day">day 3</span><p class="bubble faro">prices only move in one direction and it isn't yours. book them.</p></div>
+          <div class="esc-row"><span class="esc-day">day 4</span><p class="bubble faro">i drafted your victory text. "booked!!" all you have to do is earn it.</p></div>
+          <p class="esc-note">with charm. never guilt.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- three shapes -->
+    <section class="shapes">
+      <div class="wrap">
+        <p class="eyebrow reveal">what it holds</p>
+        <h2 class="reveal">every commitment has a <em>shape</em></h2>
+        <div class="shape-grid">
+          <div class="card reveal">
+            <span class="card-label">one time</span>
+            <h3>nag until done</h3>
+            <p class="bubble me sample">nag me until i book the flights</p>
+            <p>
+              for the thing you keep almost doing. faro checks in every single
+              day until it's actually done.
+            </p>
+          </div>
+          <div class="card reveal">
+            <span class="card-label">recurring</span>
+            <h3>habits</h3>
+            <p class="bubble me sample">remind me to clean for 10 minutes a day</p>
+            <p>
+              little rhythms that keep life upright. faro keeps the beat so you
+              don't have to.
+            </p>
+          </div>
+          <div class="card reveal">
+            <span class="card-label">recurring, with numbers</span>
+            <h3>habits with tracking</h3>
+            <p class="bubble me sample">gym 3x a week, track my PRs</p>
+            <p>
+              reps, streaks, personal records. faro remembers the numbers so
+              progress feels like progress.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- reads the room -->
+    <section class="room deep">
+      <div class="wrap split">
+        <div class="room-copy">
+          <p class="eyebrow reveal">human first</p>
+          <h2 class="reveal">it can tell when <em>today is a lot</em></h2>
+          <p class="section-sub reveal">
+            when your replies go short or something heavy is going on, faro
+            drops the task talk and shows up like a friend first. the board can
+            wait. it will still be there tomorrow. so will faro.
+          </p>
+        </div>
+        <div class="room-chat reveal">
+          <p class="bubble faro">morning. gym day 3, and the flights are still waiting on you ✈️</p>
+          <p class="bubble me">rough week. not today</p>
+          <p class="bubble faro">then forget the board. it'll keep. you okay?</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- final cta (dark) -->
+    <section class="final dark">
+      <div class="beacon" aria-hidden="true">
+        <span class="beacon-ring r1"></span>
+        <span class="beacon-ring r2"></span>
+        <span class="beacon-core"></span>
+      </div>
+      <h2 class="reveal">just text faro</h2>
+      <a class="big-number reveal" href={smsHref}>{phone}</a>
+      <p class="section-sub center reveal">
+        tell it one thing you keep dropping. see what happens tomorrow ☀️
+      </p>
+      <div class="pills reveal">
+        <span>no app</span>
+        <span>no dashboard</span>
+        <span>no setup ritual</span>
+        <span>no guilt</span>
+      </div>
+      <footer>
+        <p><span class="beacon-dot small"></span> faro © 2026 · an accountability companion you text</p>
+      </footer>
+    </section>
+
+    <script>
+      const observer = new IntersectionObserver(
+        (entries) => {
+          for (const entry of entries) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("in");
+              observer.unobserve(entry.target);
+            }
+          }
+        },
+        { threshold: 0.15 }
+      );
+      document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+    </script>
+
+    <style is:global>
+      :root {
+        --cream: #faf5ec;
+        --cream-deep: #f2ead9;
+        --ink: #1c1712;
+        --ink-soft: #6b6156;
+        --amber: #ff8b33;
+        --amber-deep: #f0761a;
+        --amber-glow: #ffb45c;
+        --dark: #171210;
+        --dark-soft: #a89c8d;
+        --bubble-gray: #e9e9eb;
+        --bubble-blue: #339df2;
+        --serif: "Instrument Serif", Georgia, serif;
+        --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Helvetica, Arial, sans-serif;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: var(--sans);
+        background: var(--cream);
+        color: var(--ink);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      ::selection {
+        background: var(--amber);
+        color: var(--ink);
+      }
+
+      .wrap {
+        max-width: 1060px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+
+      .wrap.narrow {
+        max-width: 780px;
+      }
+
+      /* ---------- type ---------- */
+      h1,
+      h2,
+      .big-serif,
+      .big-number {
+        font-family: var(--serif);
+        font-weight: 400;
+        line-height: 1.05;
+        letter-spacing: -0.01em;
+      }
+
+      h1 em,
+      h2 em,
+      .big-serif em {
+        font-style: italic;
+        color: var(--amber-deep);
+      }
+
+      h2 {
+        font-size: clamp(2.2rem, 5.5vw, 3.6rem);
+        margin-bottom: 0.5em;
+      }
+
+      h3 {
+        font-size: 1.25rem;
+        font-weight: 700;
+        margin-bottom: 0.4em;
+      }
+
+      .eyebrow {
+        font-size: 0.85rem;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        color: var(--amber-deep);
+        margin-bottom: 1em;
+      }
+
+      .section-sub {
+        color: var(--ink-soft);
+        font-size: 1.15rem;
+        max-width: 34em;
+        margin-bottom: 2.5rem;
+      }
+
+      .section-sub.center {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      /* ---------- buttons ---------- */
+      .btn {
+        display: inline-block;
+        background: var(--ink);
+        color: var(--cream);
+        text-decoration: none;
+        border-radius: 999px;
+        font-weight: 600;
+        padding: 0.85rem 1.6rem;
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+      }
+
+      .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 30px rgba(240, 118, 26, 0.35);
+      }
+
+      .btn-small {
+        padding: 0.55rem 1.2rem;
+        font-size: 0.95rem;
+      }
+
+      .btn-big {
+        font-size: 1.15rem;
+        padding: 1.05rem 2.1rem;
+        background: var(--amber-deep);
+        color: #fff;
+      }
+
+      /* ---------- nav ---------- */
+      nav {
+        position: sticky;
+        top: 14px;
+        z-index: 50;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 20px;
+        pointer-events: none;
+      }
+
+      nav > * {
+        pointer-events: auto;
+      }
+
+      .wordmark {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-family: var(--serif);
+        font-size: 1.5rem;
+        color: var(--ink);
+        text-decoration: none;
+        background: rgba(250, 245, 236, 0.85);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(28, 23, 18, 0.08);
+        border-radius: 999px;
+        padding: 8px 18px 8px 14px;
+        box-shadow: 0 4px 20px rgba(28, 23, 18, 0.08);
+      }
+
+      .beacon-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: var(--amber);
+        box-shadow: 0 0 0 4px rgba(255, 139, 51, 0.25),
+          0 0 18px 4px rgba(255, 139, 51, 0.55);
+        animation: pulse 2.6s ease-in-out infinite;
+      }
+
+      .beacon-dot.small {
+        display: inline-block;
+        width: 8px;
+        height: 8px;
+        margin-right: 6px;
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          box-shadow: 0 0 0 4px rgba(255, 139, 51, 0.25),
+            0 0 14px 2px rgba(255, 139, 51, 0.45);
+        }
+        50% {
+          box-shadow: 0 0 0 6px rgba(255, 139, 51, 0.15),
+            0 0 26px 8px rgba(255, 139, 51, 0.65);
+        }
+      }
+
+      /* ---------- hero ---------- */
+      .hero {
+        position: relative;
+        text-align: center;
+        padding: clamp(60px, 10vw, 110px) 24px 80px;
+      }
+
+      .hero-glow {
+        position: absolute;
+        top: -180px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 900px;
+        height: 700px;
+        background: radial-gradient(
+          circle,
+          rgba(255, 180, 92, 0.45) 0%,
+          rgba(255, 139, 51, 0.18) 40%,
+          transparent 70%
+        );
+        pointer-events: none;
+      }
+
+      .hero > :not(.hero-glow) {
+        position: relative;
+      }
+
+      h1 {
+        font-size: clamp(3rem, 9vw, 6rem);
+        margin-bottom: 0.35em;
+      }
+
+      .hero-sub {
+        color: var(--ink-soft);
+        font-size: 1.2rem;
+        max-width: 36em;
+        margin: 0 auto 2.2rem;
+      }
+
+      .cta-note {
+        margin-top: 0.9rem;
+        font-size: 0.9rem;
+        color: var(--ink-soft);
+      }
+
+      /* ---------- phone ---------- */
+      .phone {
+        width: min(380px, 92vw);
+        margin: 64px auto 0;
+        background: #fff;
+        border: 7px solid var(--ink);
+        border-radius: 44px;
+        overflow: hidden;
+        box-shadow: 0 30px 80px rgba(28, 23, 18, 0.25);
+        animation: float 7s ease-in-out infinite;
+        text-align: left;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-12px);
+        }
+      }
+
+      .phone-header {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 18px 20px 14px;
+        border-bottom: 1px solid #eee6da;
+      }
+
+      .avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: radial-gradient(circle at 35% 35%, var(--amber-glow), var(--amber-deep));
+        box-shadow: 0 0 14px rgba(255, 139, 51, 0.5);
+      }
+
+      .contact strong {
+        display: block;
+        font-size: 1rem;
+        line-height: 1.2;
+      }
+
+      .contact span {
+        font-size: 0.8rem;
+        color: var(--ink-soft);
+      }
+
+      .phone-messages {
+        padding: 16px 16px 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .stamp {
+        text-align: center;
+        font-size: 0.72rem;
+        color: #a9a29a;
+        margin-bottom: 4px;
+      }
+
+      .bubble {
+        max-width: 80%;
+        padding: 10px 14px;
+        border-radius: 20px;
+        font-size: 0.95rem;
+        line-height: 1.4;
+      }
+
+      .bubble.me {
+        align-self: flex-end;
+        margin-left: auto;
+        background: var(--bubble-blue);
+        color: #fff;
+        border-bottom-right-radius: 6px;
+      }
+
+      .bubble.faro {
+        align-self: flex-start;
+        background: var(--bubble-gray);
+        color: var(--ink);
+        border-bottom-left-radius: 6px;
+      }
+
+      /* ---------- marquee ---------- */
+      .marquee {
+        border-top: 1px solid rgba(28, 23, 18, 0.08);
+        border-bottom: 1px solid rgba(28, 23, 18, 0.08);
+        padding: 18px 0;
+        overflow: hidden;
+        white-space: nowrap;
+      }
+
+      .marquee-track {
+        display: inline-flex;
+        animation: scroll 42s linear infinite;
+      }
+
+      .marquee-group {
+        display: inline-flex;
+      }
+
+      .marquee-item {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        padding-right: 44px;
+        font-size: 1.05rem;
+        color: var(--ink-soft);
+      }
+
+      .marquee-item .dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--amber);
+        flex-shrink: 0;
+      }
+
+      @keyframes scroll {
+        to {
+          transform: translateX(-50%);
+        }
+      }
+
+      /* ---------- manifesto ---------- */
+      .deep {
+        background: var(--cream-deep);
+      }
+
+      .manifesto {
+        padding: clamp(80px, 12vw, 140px) 0;
+      }
+
+      .big-serif {
+        font-size: clamp(1.6rem, 3.6vw, 2.4rem);
+        line-height: 1.35;
+        margin-bottom: 1.2em;
+        color: var(--ink);
+      }
+
+      .big-serif.accent {
+        margin-bottom: 0;
+      }
+
+      /* ---------- steps ---------- */
+      .steps {
+        padding: clamp(80px, 11vw, 130px) 0;
+      }
+
+      .step-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 28px;
+        margin-top: 3rem;
+      }
+
+      .step {
+        background: #fff;
+        border: 1px solid rgba(28, 23, 18, 0.08);
+        border-radius: 24px;
+        padding: 32px 28px;
+      }
+
+      .step-num {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: var(--cream-deep);
+        color: var(--amber-deep);
+        font-family: var(--serif);
+        font-size: 1.3rem;
+        margin-bottom: 18px;
+      }
+
+      .step p {
+        color: var(--ink-soft);
+      }
+
+      /* ---------- dark sections ---------- */
+      .dark {
+        background: var(--dark);
+        color: var(--cream);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .dark .section-sub {
+        color: var(--dark-soft);
+      }
+
+      .dark h2 em {
+        color: var(--amber-glow);
+      }
+
+      /* ---------- board ---------- */
+      .board {
+        padding: clamp(80px, 11vw, 130px) 0;
+      }
+
+      .board-glow {
+        position: absolute;
+        top: -200px;
+        right: -150px;
+        width: 700px;
+        height: 700px;
+        background: radial-gradient(
+          circle,
+          rgba(255, 139, 51, 0.22) 0%,
+          transparent 65%
+        );
+        pointer-events: none;
+      }
+
+      .board .wrap {
+        position: relative;
+      }
+
+      .board-bubble {
+        background: #262019;
+        border: 1px solid rgba(255, 180, 92, 0.2);
+        border-radius: 24px;
+        border-bottom-left-radius: 8px;
+        padding: 28px 32px;
+        max-width: 520px;
+        font-size: 1.05rem;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+      }
+
+      .escalation {
+        margin-top: 4.5rem;
+        max-width: 560px;
+      }
+
+      .escalation h3 {
+        font-family: var(--serif);
+        font-weight: 400;
+        font-size: 1.6rem;
+        margin-bottom: 1.5rem;
+        color: var(--cream);
+      }
+
+      .esc-row {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin-bottom: 12px;
+      }
+
+      .esc-day {
+        flex-shrink: 0;
+        font-size: 0.78rem;
+        letter-spacing: 0.08em;
+        color: var(--dark-soft);
+        width: 44px;
+      }
+
+      .esc-row .bubble.faro {
+        background: #2c251d;
+        color: var(--cream);
+      }
+
+      .esc-note {
+        margin-top: 1.4rem;
+        padding-left: 60px;
+        font-family: var(--serif);
+        font-style: italic;
+        font-size: 1.25rem;
+        color: var(--amber-glow);
+      }
+
+      /* ---------- shapes ---------- */
+      .shapes {
+        padding: clamp(80px, 11vw, 130px) 0;
+      }
+
+      .shape-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 28px;
+        margin-top: 3rem;
+      }
+
+      .card {
+        background: #fff;
+        border: 1px solid rgba(28, 23, 18, 0.08);
+        border-radius: 24px;
+        padding: 32px 28px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 20px 50px rgba(240, 118, 26, 0.15);
+      }
+
+      .card-label {
+        align-self: flex-start;
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        color: var(--amber-deep);
+        background: rgba(255, 139, 51, 0.12);
+        border-radius: 999px;
+        padding: 4px 12px;
+      }
+
+      .card h3 {
+        margin: 0;
+      }
+
+      .card .sample {
+        margin: 4px 0;
+        align-self: flex-start;
+        max-width: 100%;
+      }
+
+      .card p:last-child {
+        color: var(--ink-soft);
+      }
+
+      /* ---------- room ---------- */
+      .room {
+        padding: clamp(80px, 11vw, 130px) 0;
+      }
+
+      .split {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 60px;
+        align-items: center;
+      }
+
+      .room-chat {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        background: #fff;
+        border: 1px solid rgba(28, 23, 18, 0.08);
+        border-radius: 28px;
+        padding: 28px 24px;
+        box-shadow: 0 20px 60px rgba(28, 23, 18, 0.1);
+      }
+
+      .room .section-sub {
+        margin-bottom: 0;
+      }
+
+      /* ---------- final ---------- */
+      .final {
+        text-align: center;
+        padding: clamp(100px, 14vw, 160px) 24px 0;
+      }
+
+      .beacon {
+        position: relative;
+        width: 120px;
+        height: 120px;
+        margin: 0 auto 3rem;
+      }
+
+      .beacon-core {
+        position: absolute;
+        inset: 40px;
+        border-radius: 50%;
+        background: radial-gradient(circle at 40% 35%, #ffd9a8, var(--amber));
+        box-shadow: 0 0 40px 10px rgba(255, 139, 51, 0.7);
+      }
+
+      .beacon-ring {
+        position: absolute;
+        inset: 0;
+        border-radius: 50%;
+        border: 1px solid rgba(255, 180, 92, 0.4);
+        animation: ripple 3.2s ease-out infinite;
+      }
+
+      .beacon-ring.r2 {
+        animation-delay: 1.6s;
+      }
+
+      @keyframes ripple {
+        0% {
+          transform: scale(0.5);
+          opacity: 1;
+        }
+        100% {
+          transform: scale(1.6);
+          opacity: 0;
+        }
+      }
+
+      .final h2 {
+        font-size: clamp(2.6rem, 7vw, 4.5rem);
+      }
+
+      .big-number {
+        display: inline-block;
+        font-size: clamp(1.8rem, 5.5vw, 3.2rem);
+        color: var(--amber-glow);
+        text-decoration: none;
+        margin: 0.6rem 0 1.2rem;
+        border-bottom: 2px solid rgba(255, 180, 92, 0.35);
+        transition: border-color 0.3s ease, text-shadow 0.3s ease;
+      }
+
+      .big-number:hover {
+        border-color: var(--amber-glow);
+        text-shadow: 0 0 30px rgba(255, 180, 92, 0.6);
+      }
+
+      .pills {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+        margin-top: 2.4rem;
+      }
+
+      .pills span {
+        border: 1px solid rgba(250, 245, 236, 0.25);
+        border-radius: 999px;
+        padding: 8px 18px;
+        font-size: 0.9rem;
+        color: var(--dark-soft);
+      }
+
+      .final footer {
+        margin-top: clamp(70px, 10vw, 110px);
+        padding: 28px 0 36px;
+        border-top: 1px solid rgba(250, 245, 236, 0.1);
+        font-size: 0.88rem;
+        color: var(--dark-soft);
+      }
+
+      /* ---------- reveal ---------- */
+      .reveal {
+        opacity: 0;
+        transform: translateY(26px);
+        transition: opacity 0.7s ease, transform 0.7s ease;
+      }
+
+      .reveal.in {
+        opacity: 1;
+        transform: none;
+      }
+
+      /* ---------- responsive ---------- */
+      @media (max-width: 860px) {
+        .step-grid,
+        .shape-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .split {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+
+        .esc-note {
+          padding-left: 0;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .marquee-track,
+        .phone,
+        .beacon-dot,
+        .beacon-ring {
+          animation: none;
+        }
+
+        .reveal {
+          opacity: 1;
+          transform: none;
+          transition: none;
+        }
+
+        html {
+          scroll-behavior: auto;
+        }
+      }
+    </style>
   </body>
 </html>

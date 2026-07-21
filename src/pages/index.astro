@@ -318,6 +318,8 @@ const marqueeItems = [
 
       html {
         scroll-behavior: smooth;
+        overflow-x: hidden;
+        overflow-x: clip;
       }
 
       body {
@@ -326,6 +328,7 @@ const marqueeItems = [
         color: var(--ink);
         line-height: 1.6;
         overflow-x: hidden;
+        overflow-x: clip;
       }
 
       ::selection {
@@ -490,6 +493,7 @@ const marqueeItems = [
         position: relative;
         text-align: center;
         padding: clamp(28px, 3.5vw, 48px) 24px 90px;
+        overflow-x: clip;
       }
 
       .hero-glow {

@@ -6,8 +6,10 @@ const marqueeItems = [
   "nag me until i book the flights",
   "gym 3x a week, track my PRs",
   "clean for 10 minutes a day",
-  "make me finish the essay",
+  "bother me till i send that follow up email",
+  "make me update my resume",
   "call grandma on sundays",
+  "nag me until i ask for the raise",
   "text me until i renew my passport",
   "drink water like a person",
   "nag me until i cancel that subscription",
@@ -41,16 +43,26 @@ const marqueeItems = [
   </head>
   <body>
     <nav>
-      <a class="wordmark" href="/">
-        <span class="beacon-dot"></span>
-        faro
-      </a>
-      <a class="btn btn-small" href={smsHref}>text faro</a>
+      <div class="nav-pill">
+        <a class="wordmark" href="/">
+          <span class="beacon-dot"></span>
+          faro
+        </a>
+        <a class="btn btn-small" href={smsHref}>text faro</a>
+      </div>
     </nav>
 
     <!-- hero -->
     <header class="hero">
       <div class="hero-glow" aria-hidden="true"></div>
+
+      <div class="orbit" aria-hidden="true">
+        <p class="bubble me orb o1">nag me until i renew my passport</p>
+        <p class="bubble faro orb o2">don't let me forget to call grandma</p>
+        <p class="bubble me orb o3">make sure i send that follow up email</p>
+        <p class="bubble faro orb o4">remind me tmr to book the dentist</p>
+      </div>
+
       <p class="eyebrow">an accountability companion you text</p>
       <h1>
         your brain drops things.<br />
@@ -65,23 +77,25 @@ const marqueeItems = [
         <p class="cta-note">save the number. say hi. that's the whole onboarding.</p>
       </div>
 
-      <div class="phone" role="img" aria-label="a text conversation with faro">
-        <div class="phone-header">
-          <span class="avatar"></span>
-          <div class="contact">
-            <strong>faro</strong>
-            <span>{phone}</span>
+      <div class="phone-stage">
+        <div class="phone" role="img" aria-label="a text conversation with faro">
+          <div class="phone-header">
+            <span class="avatar"></span>
+            <div class="contact">
+              <strong>faro</strong>
+              <span>{phone}</span>
+            </div>
           </div>
-        </div>
-        <div class="phone-messages">
-          <p class="stamp">today 9:02 am</p>
-          <p class="bubble me">nag me until i book the flights to lisbon</p>
-          <p class="bubble faro">
-            on it. i'll check in every day until you're holding a boarding pass.
-            when do they need to be booked, ish?
-          </p>
-          <p class="bubble me">before friday</p>
-          <p class="bubble faro">noted. talk tomorrow ☀️</p>
+          <div class="phone-messages">
+            <p class="stamp">today 9:02 am</p>
+            <p class="bubble me">nag me until i book the flights to lisbon</p>
+            <p class="bubble faro">
+              on it. i'll check in every day until you're holding a boarding pass.
+              when do they need to be booked, ish?
+            </p>
+            <p class="bubble me">before friday</p>
+            <p class="bubble faro">noted. talk tomorrow ☀️</p>
+          </div>
         </div>
       </div>
     </header>
@@ -165,7 +179,7 @@ const marqueeItems = [
 
         <div class="board-bubble reveal">
           <p>morning ☀️ the board:</p>
-          <p>✅ essay: sent last night. you actually did it.</p>
+          <p>✅ invoice: sent last night. you actually did it.</p>
           <p>🔥 gym: 2 of 3 this week. one more and the streak lives.</p>
           <p>✈️ lisbon flights: day 4. see below.</p>
           <p>👀 passport: still pretending not to see this one?</p>
@@ -192,7 +206,7 @@ const marqueeItems = [
           <div class="card reveal">
             <span class="card-label">one time</span>
             <h3>nag until done</h3>
-            <p class="bubble me sample">nag me until i book the flights</p>
+            <p class="bubble me sample">nag me until i submit the expense report</p>
             <p>
               for the thing you keep almost doing. faro checks in every single
               day until it's actually done.
@@ -413,14 +427,23 @@ const marqueeItems = [
         top: 14px;
         z-index: 50;
         display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0 20px;
+        justify-content: center;
+        padding: 0 16px;
         pointer-events: none;
       }
 
-      nav > * {
+      .nav-pill {
         pointer-events: auto;
+        display: flex;
+        align-items: center;
+        gap: 22px;
+        background: rgba(250, 245, 236, 0.82);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        border: 1px solid rgba(28, 23, 18, 0.08);
+        border-radius: 999px;
+        padding: 7px 8px 7px 18px;
+        box-shadow: 0 10px 30px rgba(28, 23, 18, 0.1);
       }
 
       .wordmark {
@@ -431,13 +454,6 @@ const marqueeItems = [
         font-size: 1.5rem;
         color: var(--ink);
         text-decoration: none;
-        background: rgba(250, 245, 236, 0.85);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        border: 1px solid rgba(28, 23, 18, 0.08);
-        border-radius: 999px;
-        padding: 8px 18px 8px 14px;
-        box-shadow: 0 4px 20px rgba(28, 23, 18, 0.08);
       }
 
       .beacon-dot {
@@ -473,7 +489,7 @@ const marqueeItems = [
       .hero {
         position: relative;
         text-align: center;
-        padding: clamp(60px, 10vw, 110px) 24px 80px;
+        padding: clamp(28px, 3.5vw, 48px) 24px 90px;
       }
 
       .hero-glow {
@@ -514,16 +530,60 @@ const marqueeItems = [
         color: var(--ink-soft);
       }
 
+      /* ---------- orbit (floating bubbles + stickers) ---------- */
+      .orbit {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        z-index: 1;
+      }
+
+      .orbit .bubble {
+        position: absolute;
+        max-width: 210px;
+        font-size: 0.9rem;
+        padding: 10px 14px;
+        line-height: 1.35;
+        text-align: left;
+        opacity: 0.95;
+        box-shadow: 0 10px 30px rgba(28, 23, 18, 0.1);
+        transform: rotate(var(--r, 0deg));
+      }
+
+      .orbit .bubble.faro {
+        background: #fff;
+      }
+
+      .o1 { top: 170px; left: calc(50% - 545px); animation: bob-a 10s ease-in-out infinite; }
+      .o2 { top: 320px; left: calc(50% - 545px); animation: bob-b 12s ease-in-out 0.8s infinite; }
+      .o3 { top: 170px; left: auto; right: calc(50% - 545px); animation: bob-b 11s ease-in-out 0.4s infinite; }
+      .o4 { top: 320px; left: auto; right: calc(50% - 545px); animation: bob-a 13s ease-in-out 1.2s infinite; }
+
+      @keyframes bob-a {
+        0%, 100% { transform: translate3d(0, 0, 0) rotate(var(--r, 0deg)); }
+        50% { transform: translate3d(0, -8px, 0) rotate(var(--r, 0deg)); }
+      }
+
+      @keyframes bob-b {
+        0%, 100% { transform: translate3d(0, 0, 0) rotate(var(--r, 0deg)); }
+        50% { transform: translate3d(3px, -6px, 0) rotate(var(--r, 0deg)); }
+      }
+
       /* ---------- phone ---------- */
-      .phone {
+      .phone-stage {
+        position: relative;
         width: min(380px, 92vw);
-        margin: 64px auto 0;
+        margin: 56px auto 0;
+        animation: float 7s ease-in-out infinite;
+      }
+
+      .phone {
+        width: 100%;
         background: #fff;
         border: 7px solid var(--ink);
         border-radius: 44px;
         overflow: hidden;
         box-shadow: 0 30px 80px rgba(28, 23, 18, 0.25);
-        animation: float 7s ease-in-out infinite;
         text-align: left;
       }
 
@@ -599,6 +659,59 @@ const marqueeItems = [
         background: var(--bubble-gray);
         color: var(--ink);
         border-bottom-left-radius: 6px;
+      }
+
+      .orbit .bubble.me {
+        margin-left: 0;
+      }
+
+      @media (max-width: 1120px) {
+        .o2,
+        .o4 {
+          display: none;
+        }
+
+        .o1 { top: 175px; left: 3%; }
+        .o3 { top: 180px; left: auto; right: 3%; }
+      }
+
+      @media (max-width: 860px) {
+        .hero {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .orbit {
+          position: static;
+          order: 5;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 8px;
+          margin-top: 30px;
+          max-width: 480px;
+        }
+
+        .o2,
+        .o4 {
+          display: block;
+        }
+
+        .orbit .bubble {
+          position: static;
+          max-width: none;
+          font-size: 0.78rem;
+          padding: 7px 11px;
+          transform: none;
+          animation: none;
+          box-shadow: 0 6px 18px rgba(28, 23, 18, 0.08);
+        }
+
+        .phone-stage {
+          order: 6;
+          margin-top: 26px;
+        }
       }
 
       /* ---------- marquee ---------- */
@@ -992,7 +1105,8 @@ const marqueeItems = [
 
       @media (prefers-reduced-motion: reduce) {
         .marquee-track,
-        .phone,
+        .phone-stage,
+        .orbit .bubble,
         .beacon-dot,
         .beacon-ring {
           animation: none;

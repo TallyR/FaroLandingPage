@@ -57,10 +57,10 @@ const marqueeItems = [
       <div class="hero-glow" aria-hidden="true"></div>
 
       <div class="orbit" aria-hidden="true">
-        <p class="bubble me orb o1">nag me until i renew my passport</p>
-        <p class="bubble faro orb o2">don't let me forget to call grandma</p>
-        <p class="bubble me orb o3">make sure i send that follow up email</p>
-        <p class="bubble faro orb o4">remind me tmr to book the dentist</p>
+        <p class="note o1"><span class="note-dot"></span>nag me until i renew my passport</p>
+        <p class="note o2"><span class="note-dot"></span>don't let me forget to call grandma</p>
+        <p class="note o3"><span class="note-dot"></span>make sure i send that follow up email</p>
+        <p class="note o4"><span class="note-dot"></span>remind me tmr to book the dentist</p>
       </div>
 
       <p class="eyebrow">an accountability companion you text</p>
@@ -538,20 +538,32 @@ const marqueeItems = [
         z-index: 1;
       }
 
-      .orbit .bubble {
+      .orbit .note {
         position: absolute;
-        max-width: 210px;
-        font-size: 0.9rem;
-        padding: 10px 14px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        max-width: 235px;
+        font-size: 0.88rem;
         line-height: 1.35;
         text-align: left;
-        opacity: 0.95;
-        box-shadow: 0 10px 30px rgba(28, 23, 18, 0.1);
-        transform: rotate(var(--r, 0deg));
+        color: var(--ink);
+        background: rgba(255, 255, 255, 0.55);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border: 1px solid rgba(28, 23, 18, 0.08);
+        border-radius: 14px;
+        padding: 10px 14px;
+        box-shadow: 0 10px 30px rgba(28, 23, 18, 0.08);
       }
 
-      .orbit .bubble.faro {
-        background: #fff;
+      .note-dot {
+        flex-shrink: 0;
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: var(--amber);
+        box-shadow: 0 0 8px 2px rgba(255, 139, 51, 0.45);
       }
 
       .o1 { top: 170px; left: calc(50% - 545px); animation: bob-a 10s ease-in-out infinite; }
@@ -661,13 +673,10 @@ const marqueeItems = [
         border-bottom-left-radius: 6px;
       }
 
-      .orbit .bubble.me {
-        margin-left: 0;
-      }
 
       @media (max-width: 1120px) {
-        .o2,
-        .o4 {
+        .orbit .o2,
+        .orbit .o4 {
           display: none;
         }
 
@@ -693,12 +702,12 @@ const marqueeItems = [
           max-width: 480px;
         }
 
-        .o2,
-        .o4 {
-          display: block;
+        .orbit .o2,
+        .orbit .o4 {
+          display: flex;
         }
 
-        .orbit .bubble {
+        .orbit .note {
           position: static;
           max-width: none;
           font-size: 0.78rem;
@@ -1106,7 +1115,7 @@ const marqueeItems = [
       @media (prefers-reduced-motion: reduce) {
         .marquee-track,
         .phone-stage,
-        .orbit .bubble,
+        .orbit .note,
         .beacon-dot,
         .beacon-ring {
           animation: none;

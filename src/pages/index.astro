@@ -56,11 +56,11 @@ const marqueeItems = [
     <header class="hero">
       <div class="hero-glow" aria-hidden="true"></div>
 
-      <div class="orbit" aria-hidden="true">
-        <p class="note o1"><span class="note-dot"></span>nag me until i renew my passport</p>
-        <p class="note o2"><span class="note-dot"></span>don't let me forget to call grandma</p>
-        <p class="note o3"><span class="note-dot"></span>make sure i send that follow up email</p>
-        <p class="note o4"><span class="note-dot"></span>remind me tmr to book the dentist</p>
+      <div class="orbit">
+        <a class="note o1" href={smsHref}><span class="note-dot"></span>nag me until i renew my passport<span class="note-send" aria-hidden="true">↑</span></a>
+        <a class="note o2" href={smsHref}><span class="note-dot"></span>don't let me forget to call grandma<span class="note-send" aria-hidden="true">↑</span></a>
+        <a class="note o3" href={smsHref}><span class="note-dot"></span>make sure i send that follow up email<span class="note-send" aria-hidden="true">↑</span></a>
+        <a class="note o4" href={smsHref}><span class="note-dot"></span>remind me tmr to book the dentist<span class="note-send" aria-hidden="true">↑</span></a>
       </div>
 
       <p class="eyebrow">an accountability companion you text</p>
@@ -74,7 +74,7 @@ const marqueeItems = [
       </p>
       <div class="hero-cta">
         <a class="btn btn-big" href={smsHref}>text {phone}</a>
-        <p class="cta-note">save the number. say hi. that's the whole onboarding.</p>
+        <p class="cta-note">tap any of these to get started. your messages open with a hey faro ready to send.</p>
       </div>
 
       <div class="phone-stage">
@@ -552,6 +552,8 @@ const marqueeItems = [
         line-height: 1.35;
         text-align: left;
         color: var(--ink);
+        text-decoration: none;
+        pointer-events: auto;
         background: rgba(255, 255, 255, 0.55);
         backdrop-filter: blur(8px);
         -webkit-backdrop-filter: blur(8px);
@@ -559,6 +561,34 @@ const marqueeItems = [
         border-radius: 14px;
         padding: 10px 14px;
         box-shadow: 0 10px 30px rgba(28, 23, 18, 0.08);
+        transition: border-color 0.25s ease, box-shadow 0.25s ease;
+      }
+
+      .orbit .note:hover,
+      .orbit .note:focus-visible {
+        border-color: rgba(240, 118, 26, 0.4);
+        box-shadow: 0 12px 32px rgba(240, 118, 26, 0.16);
+      }
+
+      .note-send {
+        flex-shrink: 0;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 11px;
+        font-weight: 700;
+        background: rgba(28, 23, 18, 0.08);
+        color: var(--ink-soft);
+        transition: background 0.25s ease, color 0.25s ease;
+      }
+
+      .orbit .note:hover .note-send,
+      .orbit .note:focus-visible .note-send {
+        background: var(--amber-deep);
+        color: #fff;
       }
 
       .note-dot {

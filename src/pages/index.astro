@@ -273,6 +273,7 @@ const marqueeItems = [
         <span>no guilt</span>
       </div>
       <footer>
+        <p class="founder-line">questions or comments? text me: <a href="sms:+16467393041">+1 (646) 739-3041</a></p>
         <p><span class="beacon-dot small"></span> faro © 2026 · an accountability companion you text · made in nyc 🗽</p>
       </footer>
     </section>
@@ -1130,6 +1131,24 @@ const marqueeItems = [
         border-top: 1px solid rgba(250, 245, 236, 0.1);
         font-size: 0.88rem;
         color: var(--dark-soft);
+      }
+
+      .founder-line {
+        font-family: var(--serif);
+        font-size: 1.45rem;
+        color: var(--cream);
+        margin-bottom: 16px;
+      }
+
+      .founder-line a {
+        color: var(--amber-glow);
+        text-decoration: none;
+        border-bottom: 1px solid rgba(255, 180, 92, 0.35);
+        transition: border-color 0.2s ease;
+      }
+
+      .founder-line a:hover {
+        border-color: var(--amber-glow);
       }
 
 

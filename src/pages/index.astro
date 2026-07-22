@@ -78,12 +78,12 @@ const marqueeItems = [
       </div>
 
       <div class="phone-stage">
-        <div class="phone" role="img" aria-label="a text conversation with faro">
+        <div class="phone">
           <div class="phone-header">
             <span class="avatar"></span>
             <div class="contact">
               <strong>faro</strong>
-              <span>{phone}</span>
+              <a href={smsHref}>{phone}</a>
             </div>
           </div>
           <div class="phone-messages">
@@ -665,9 +665,21 @@ const marqueeItems = [
         line-height: 1.2;
       }
 
-      .contact span {
+      .contact a {
+        display: inline-block;
         font-size: 0.8rem;
-        color: var(--ink-soft);
+        font-weight: 600;
+        color: var(--bubble-blue);
+        text-decoration: none;
+        background: rgba(51, 157, 242, 0.12);
+        border-radius: 999px;
+        padding: 2px 10px;
+        margin-top: 3px;
+        transition: background 0.2s ease;
+      }
+
+      .contact a:hover {
+        background: rgba(51, 157, 242, 0.22);
       }
 
       .phone-messages {

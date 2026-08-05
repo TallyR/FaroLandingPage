@@ -74,7 +74,7 @@ const marqueeItems = [
       </p>
       <div class="hero-cta">
         <a class="btn btn-big" href={smsHref}>text {phone}</a>
-        <p class="cta-note">tap any of these to get started.</p>
+        <p class="cta-note">tap any of these to get started. two weeks free, no card needed or sign up needed.</p>
       </div>
 
       <div class="phone-stage">
@@ -169,8 +169,26 @@ const marqueeItems = [
       </div>
     </section>
 
+    <!-- pricing -->
+    <section class="pricing" id="pricing">
+      <div class="wrap">
+        <p class="eyebrow reveal">the price</p>
+        <h2 class="reveal">two weeks free. <em>then ten bucks a month.</em></h2>
+        <p class="section-sub center reveal">
+          no credit card to start. just text faro and see if it works for you.
+        </p>
+        <div class="price-card reveal">
+          <div class="price-glow" aria-hidden="true"></div>
+          <span class="price-pill">first two weeks on us</span>
+          <p class="price-big">$10<span>/month</span></p>
+          <a class="btn btn-big" href={smsHref}>start free, just text faro</a>
+          <p class="price-note">no card. no forms. cancel whenever.</p>
+        </div>
+      </div>
+    </section>
+
     <!-- how it works -->
-    <section class="steps">
+    <section class="steps deep">
       <div class="wrap">
         <p class="eyebrow reveal">how it works</p>
         <h2 class="reveal">three steps, and one of them is <em>texting</em></h2>
@@ -1207,6 +1225,77 @@ const marqueeItems = [
         border-color: var(--amber-glow);
       }
 
+
+      /* ---------- pricing ---------- */
+      .pricing {
+        padding: clamp(80px, 11vw, 130px) 0;
+        text-align: center;
+        scroll-margin-top: 70px;
+      }
+
+      .price-card {
+        position: relative;
+        overflow: hidden;
+        background: #fff;
+        border: 1px solid rgba(28, 23, 18, 0.08);
+        border-radius: 28px;
+        padding: 42px 32px 36px;
+        max-width: 430px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+        box-shadow: 0 20px 60px rgba(28, 23, 18, 0.08);
+      }
+
+      .price-glow {
+        position: absolute;
+        top: -130px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 430px;
+        height: 340px;
+        background: radial-gradient(
+          circle,
+          rgba(255, 180, 92, 0.45) 0%,
+          rgba(255, 139, 51, 0.14) 50%,
+          transparent 75%
+        );
+        pointer-events: none;
+      }
+
+      .price-card > :not(.price-glow) {
+        position: relative;
+      }
+
+      .price-pill {
+        font-size: 0.8rem;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        color: var(--amber-deep);
+        background: rgba(255, 139, 51, 0.14);
+        border: 1px solid rgba(240, 118, 26, 0.22);
+        border-radius: 999px;
+        padding: 5px 14px;
+      }
+
+      .price-big {
+        font-family: var(--serif);
+        font-size: 4.4rem;
+        line-height: 1;
+      }
+
+      .price-big span {
+        font-family: var(--sans);
+        font-size: 1.15rem;
+        color: var(--ink-soft);
+      }
+
+      .price-note {
+        font-size: 0.9rem;
+        color: var(--ink-soft);
+      }
 
       /* ---------- reveal ---------- */
       .reveal {

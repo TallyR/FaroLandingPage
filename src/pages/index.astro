@@ -1,4 +1,6 @@
 ---
+import Analytics from "@vercel/analytics/astro";
+
 const phone = "+1 (646) 879-0459";
 const smsHref = "sms:+16468790459?&body=hey%20faro";
 
@@ -40,6 +42,7 @@ const marqueeItems = [
       href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap"
       rel="stylesheet"
     />
+    <Analytics />
   </head>
   <body>
     <nav>

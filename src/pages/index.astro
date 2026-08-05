@@ -4,7 +4,7 @@ const smsHref = "sms:+16468790459?&body=hey%20faro";
 
 const marqueeItems = [
   "nag me until i book the flights",
-  "gym 3x a week, track my PRs",
+  "gym 3x a week, no excuses",
   "clean for 10 minutes a day",
   "bother me till i send that follow up email",
   "make me update my resume",
@@ -57,10 +57,10 @@ const marqueeItems = [
       <div class="hero-glow" aria-hidden="true"></div>
 
       <div class="orbit">
-        <a class="note o1" href={smsHref}><span class="note-dot"></span>nag me until i renew my passport<span class="note-send" aria-hidden="true">↑</span></a>
-        <a class="note o2" href={smsHref}><span class="note-dot"></span>don't let me forget to call grandma<span class="note-send" aria-hidden="true">↑</span></a>
-        <a class="note o3" href={smsHref}><span class="note-dot"></span>make sure i send that follow up email<span class="note-send" aria-hidden="true">↑</span></a>
-        <a class="note o4" href={smsHref}><span class="note-dot"></span>remind me tmr to book the dentist<span class="note-send" aria-hidden="true">↑</span></a>
+        <a class="note o1" href={smsHref}><span class="note-dot"></span>remind me every day at 3pm to take my meds<span class="note-send" aria-hidden="true">↑</span></a>
+        <a class="note o2" href={smsHref}><span class="note-dot"></span>text me thursday at 7 about dinner with josh<span class="note-send" aria-hidden="true">↑</span></a>
+        <a class="note o3" href={smsHref}><span class="note-dot"></span>every tuesday at 4pm remind me to jog<span class="note-send" aria-hidden="true">↑</span></a>
+        <a class="note o4" href={smsHref}><span class="note-dot"></span>don't let me forget mom's birthday friday<span class="note-send" aria-hidden="true">↑</span></a>
       </div>
 
       <p class="eyebrow">an accountability companion you text</p>
@@ -69,8 +69,8 @@ const marqueeItems = [
         <em>faro doesn't.</em>
       </h1>
       <p class="hero-sub">
-        no app. no dashboard. no setup. you tell it what you're committing to,
-        it remembers everything, and it texts you every day until it's done.
+        no app. no calendar. no setup. text faro what to remember and it texts
+        you at the right time.
       </p>
       <div class="hero-cta">
         <a class="btn btn-big" href={smsHref}>text {phone}</a>
@@ -116,6 +116,43 @@ const marqueeItems = [
       </div>
     </section>
 
+    <!-- features: daily nag + reminders -->
+    <section class="features" id="features">
+      <div class="wrap">
+        <p class="eyebrow reveal">what it holds</p>
+        <h2 class="reveal">never drop the ball. <em>never babysit an app.</em></h2>
+        <p class="section-sub center reveal">
+          no calendar to fight with. no notes app you'll never open again. faro
+          just texts you at the right time.
+        </p>
+        <div class="feature-card reveal">
+          <div class="seg">
+            <span class="seg-thumb" aria-hidden="true"></span>
+            <button class="active">the daily nag</button>
+            <button>reminders</button>
+          </div>
+          <div class="feature-panel show">
+            <p class="panel-copy">
+              every morning, one text with what's coming up today. nothing to
+              open. it finds you.
+            </p>
+            <p class="bubble faro">morning ☀️ today: meds at 3, evening jog at 4, dinner with josh at 8</p>
+          </div>
+          <div class="feature-panel">
+            <p class="panel-copy">
+              events or recurring, said any way you like. faro sets it up and
+              never forgets.
+            </p>
+            <p class="bubble me">text me at 3pm next thursday that i have dinner with josh</p>
+            <p class="bubble me">nag me every day at 3pm to take my medication</p>
+            <p class="bubble me">every tuesday at 4pm remind me twice, 30 minutes apart, for my evening jog</p>
+            <p class="bubble faro">got it. also, here's your 4pm reminder to email sarah back</p>
+            <p class="panel-foot">if you can text it, faro can set it up.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- manifesto -->
     <section class="manifesto deep">
       <div class="wrap narrow reveal">
@@ -150,7 +187,7 @@ const marqueeItems = [
             <span class="step-num">2</span>
             <h3>faro holds it</h3>
             <p>
-              commitments, streaks, context. persistent memory means it never
+              commitments, schedules, context. persistent memory means it never
               asks you to explain your life twice.
             </p>
           </div>
@@ -170,7 +207,7 @@ const marqueeItems = [
     <section class="board dark">
       <div class="board-glow" aria-hidden="true"></div>
       <div class="wrap">
-        <p class="eyebrow reveal">the daily text</p>
+        <p class="eyebrow reveal">the daily nag</p>
         <h2 class="reveal">one text a day. <em>your whole board.</em></h2>
         <p class="section-sub reveal">
           what's done, what's in flight, what's slipping. you never have to
@@ -180,9 +217,9 @@ const marqueeItems = [
         <div class="board-bubble reveal">
           <p>morning ☀️ the board:</p>
           <p>✅ invoice: sent last night. you actually did it.</p>
-          <p>🔥 gym: 2 of 3 this week. one more and the streak lives.</p>
+          <p>📅 dinner with josh tonight at 8.</p>
+          <p>💊 meds at 3. i'll ping you.</p>
           <p>✈️ lisbon flights: day 4. see below.</p>
-          <p>👀 passport: still pretending not to see this one?</p>
           <p>one thing today. i'd pick the flights.</p>
         </div>
 
@@ -193,43 +230,6 @@ const marqueeItems = [
           <div class="esc-row"><span class="esc-day">day 3</span><p class="bubble faro">prices only move in one direction and it isn't yours. book them.</p></div>
           <div class="esc-row"><span class="esc-day">day 4</span><p class="bubble faro">i drafted your victory text. "booked!!" all you have to do is earn it.</p></div>
           <p class="esc-note">with charm. never guilt.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- three shapes -->
-    <section class="shapes">
-      <div class="wrap">
-        <p class="eyebrow reveal">what it holds</p>
-        <h2 class="reveal">every commitment has a <em>shape</em></h2>
-        <div class="shape-grid">
-          <div class="card reveal">
-            <span class="card-label">one time</span>
-            <h3>nag until done</h3>
-            <p class="bubble me sample">nag me until i submit the expense report</p>
-            <p>
-              for the thing you keep almost doing. faro checks in every single
-              day until it's actually done.
-            </p>
-          </div>
-          <div class="card reveal">
-            <span class="card-label">recurring</span>
-            <h3>habits</h3>
-            <p class="bubble me sample">remind me to clean for 10 minutes a day</p>
-            <p>
-              little rhythms that keep life upright. faro keeps the beat so you
-              don't have to.
-            </p>
-          </div>
-          <div class="card reveal">
-            <span class="card-label">recurring, with numbers</span>
-            <h3>habits with tracking</h3>
-            <p class="bubble me sample">gym 3x a week, track my PRs</p>
-            <p>
-              reps, streaks, personal records. faro remembers the numbers so
-              progress feels like progress.
-            </p>
-          </div>
         </div>
       </div>
     </section>
@@ -279,6 +279,19 @@ const marqueeItems = [
     </section>
 
     <script>
+      const seg = document.querySelector(".seg");
+      if (seg) {
+        const tabs = seg.querySelectorAll("button");
+        const panels = document.querySelectorAll(".feature-panel");
+        tabs.forEach((tab, i) =>
+          tab.addEventListener("click", () => {
+            seg.classList.toggle("right", i === 1);
+            tabs.forEach((t, j) => t.classList.toggle("active", j === i));
+            panels.forEach((p, j) => p.classList.toggle("show", j === i));
+          })
+        );
+      }
+
       const observer = new IntersectionObserver(
         (entries) => {
           for (const entry of entries) {
@@ -603,10 +616,10 @@ const marqueeItems = [
         box-shadow: 0 0 8px 2px rgba(255, 139, 51, 0.45);
       }
 
-      .o1 { top: 170px; left: calc(50% - 545px); animation: bob-a 10s ease-in-out infinite; }
-      .o2 { top: 320px; left: calc(50% - 545px); animation: bob-b 12s ease-in-out 0.8s infinite; }
-      .o3 { top: 170px; left: auto; right: calc(50% - 545px); animation: bob-b 11s ease-in-out 0.4s infinite; }
-      .o4 { top: 320px; left: auto; right: calc(50% - 545px); animation: bob-a 13s ease-in-out 1.2s infinite; }
+      .o1 { top: 182px; left: calc(50% - 545px); animation: bob-a 10s ease-in-out infinite; }
+      .o2 { top: 335px; left: calc(50% - 545px); animation: bob-b 12s ease-in-out 0.8s infinite; }
+      .o3 { top: 187px; left: auto; right: calc(50% - 545px); animation: bob-b 11s ease-in-out 0.4s infinite; }
+      .o4 { top: 335px; left: auto; right: calc(50% - 545px); animation: bob-a 13s ease-in-out 1.2s infinite; }
 
       @keyframes bob-a {
         0%, 100% { transform: translate3d(0, 0, 0) rotate(var(--r, 0deg)); }
@@ -966,57 +979,100 @@ const marqueeItems = [
         color: var(--amber-glow);
       }
 
-      /* ---------- shapes ---------- */
-      .shapes {
-        padding: clamp(80px, 11vw, 130px) 0;
+      /* ---------- features (daily nag + reminders) ---------- */
+      .features {
+        padding: clamp(60px, 8vw, 100px) 0;
+        text-align: center;
       }
 
-      .shape-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 28px;
-        margin-top: 3rem;
-      }
-
-      .card {
+      .feature-card {
         background: #fff;
         border: 1px solid rgba(28, 23, 18, 0.08);
-        border-radius: 24px;
-        padding: 32px 28px;
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border-radius: 28px;
+        padding: 26px;
+        max-width: 620px;
+        margin: 0 auto;
+        box-shadow: 0 20px 60px rgba(28, 23, 18, 0.08);
       }
 
-      .card:hover {
-        transform: translateY(-6px);
-        box-shadow: 0 20px 50px rgba(240, 118, 26, 0.15);
-      }
-
-      .card-label {
-        align-self: flex-start;
-        font-size: 0.75rem;
-        font-weight: 600;
-        letter-spacing: 0.1em;
-        color: var(--amber-deep);
-        background: rgba(255, 139, 51, 0.12);
+      .seg {
+        position: relative;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        background: var(--cream-deep);
         border-radius: 999px;
-        padding: 4px 12px;
+        padding: 5px;
+        max-width: 360px;
+        margin: 0 auto;
       }
 
-      .card h3 {
-        margin: 0;
+      .seg-thumb {
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        width: calc(50% - 5px);
+        height: calc(100% - 10px);
+        background: #fff;
+        border-radius: 999px;
+        box-shadow: 0 2px 10px rgba(28, 23, 18, 0.12);
+        transition: transform 0.3s ease;
       }
 
-      .card .sample {
-        margin: 4px 0;
-        align-self: flex-start;
+      .seg.right .seg-thumb {
+        transform: translateX(100%);
+      }
+
+      .seg button {
+        position: relative;
+        z-index: 1;
+        background: none;
+        border: none;
+        font: inherit;
+        font-weight: 600;
+        font-size: 0.95rem;
+        padding: 9px 0;
+        border-radius: 999px;
+        cursor: pointer;
+        color: var(--ink-soft);
+        transition: color 0.2s ease;
+      }
+
+      .seg button.active {
+        color: var(--ink);
+      }
+
+      .feature-panel {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        padding-top: 22px;
+        text-align: left;
+      }
+
+      .feature-panel.show {
+        display: flex;
+      }
+
+      .feature-panel .bubble {
+        font-size: 0.92rem;
         max-width: 100%;
       }
 
-      .card p:last-child {
+      .panel-copy {
+        align-self: center;
+        text-align: center;
         color: var(--ink-soft);
+        font-size: 0.98rem;
+      }
+
+      .panel-foot {
+        align-self: center;
+        font-family: var(--serif);
+        font-style: italic;
+        font-size: 1.05rem;
+        color: var(--amber-deep);
+        margin-top: 4px;
       }
 
       /* ---------- room ---------- */
@@ -1166,8 +1222,7 @@ const marqueeItems = [
 
       /* ---------- responsive ---------- */
       @media (max-width: 860px) {
-        .step-grid,
-        .shape-grid {
+        .step-grid {
           grid-template-columns: 1fr;
         }
 
